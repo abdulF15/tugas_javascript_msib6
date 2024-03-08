@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas1_js_msib6</title>
+  </head>
+  <body style="background-color: #efeae2">
+    <center>
+      <table
+        border="1"
+        cellpadding="15"
+        cellspacing="0"
+        style="margin-bottom: 20px"
+      >
+        <thead>
+          <tr>
+            <td>No.</td>
+            <td>Nama Pegawai</td>
+            <td>Jabatan</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="pegawai"></td>
+            <td class="jabatan"></td>
+            <td class="status"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Gaji</td>
+            <td colspan="3" class="gapok">Rp .</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table cellspacing="0" celpadding="10" border="1">
+        <thead align="center">
+          <tr>
+            <td>No.</td>
+            <td>
+              <h3>syarat dan ketentuan :</h3>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>
+              Gaji Pokok(if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5
+              jt
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Tunjangan Jabatan: 15% dari gapok</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>BPJS: 10% dari gapok</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              Tunjangan Keluarga (ternary): dilihat dari status yg sudah menikah
+              =>20% dari gapok
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>
+              Total Gaji: jumlahlahkan seluruh element gaji (gunakan tfoot)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+  <script>
+    let nama = "Ridwan";
+    let jabatan = "manager";
+    let status = "menikah";
+    document.querySelector(".pegawai").textContent = nama;
+    document.querySelector(".jabatan").textContent = jabatan;
+    document.querySelector(".status").textContent = status;
+
+    if (jabatan == "manager") {
+      gajiPokok = 15000000;
+    } else if (jabatan == "asistenmanager") {
+      gajipokok = 10000000;
+    } else {
+      gajiPokok = 5000000;
+    }
+    let tunJab = (gajiPokok * 15) / 100;
+    let bpjs = (gajiPokok * 10) / 100;
+    let tunjanganMenikah = status == "menikah" ? (gajiPokok * 20) / 100 : 0;
+
+    let totalGaji = gajiPokok + tunJab + bpjs + tunjanganMenikah;
+
+    document.querySelector(".gapok").textContent = "Rp. " + totalGaji;
+  </script>
+</html>
