@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas2_js</title>
+  </head>
+  <body>
+    <center>
+      <table style="width: 60%" cellspacing="0" cellpadding="15px" border="1">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Nilai</th>
+            <th>Keterangan</th>
+            <th>Grade</th>
+            <th>Predikat</th>
+          </tr>
+        </thead>
+        <tbody class="loop"></tbody>
+      </table>
+    </center>
+    <script>
+      let siswa = [
+        {
+          nama: "andi",
+          nilai: 80,
+        },
+        {
+          nama: "Ali",
+          nilai: 90,
+        },
+        {
+          nama: "Aji",
+          nilai: 70,
+        },
+        {
+          nama: "Ani",
+          nilai: 90,
+        },
+        {
+          nama: "Ando",
+          nilai: 85,
+        },
+      ];
+
+      let rowsHTML = siswa.map((data, index) => {
+        let ket = data.nilai >= 60 ? "lulus" : "gagal";
+        let grade = "";
+        let predikat = "";
+        if (data.nilai > 85 && data.nilai <= 100) grade = "A";
+        else if (data.nilai > 75 && data.nilai <= 85) grade = "B";
+        else if (data.nilai > 60 && data.nilai <= 75) grade = "C";
+        else if (data.nilai > 30 && data.nilai <= 60) grade = "D";
+        else if (data.nilai > 0 && data.nilai <= 30) grade = "E";
+        else grade = "";
+
+        switch (grade) {
+          case "A":
+            predikat = "Sempurna";
+            break;
+          case "B":
+            predikat = "Baik";
+            break;
+          case "C":
+            predikat = "Cukup";
+            break;
+          case "D":
+            predikat = "Kurang";
+            break;
+          case "E":
+            predikat = "Buruk";
+            break;
+          default:
+            predikat = "";
+            break;
+        }
+        return `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${data.nama}</td>
+          <td>${data.nilai}</td>
+          <td>${predikat}</td>
+          <td>${grade}</td>
+          <td>${ket}</td>
+        </tr>
+      `;
+      });
+
+      // Gabungkan semua elemen HTML menjadi satu string
+      let tableHTML = rowsHTML.join("");
+
+      // Masukkan string HTML ke dalam tbody
+      document.querySelector(".loop").innerHTML = tableHTML;
+    </script>
+  </body>
+</html>
