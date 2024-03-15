@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas3_js</title>
+  </head>
+  <body>
+    <table style="margin: auto" border="1" cellspacing="0" cellpadding="15">
+      <tr>
+        <td>
+          <label for="nama">Nama</label>
+        </td>
+        <td>
+          <input type="text" id="nama" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="pekerjaan">Pekerjaan</label>
+        </td>
+        <td>
+          <input type="text" id="pekerjaan" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="hoby">Hoby</label>
+        </td>
+        <td>
+          <input type="text" id="hoby" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button id="submit" style="margin: auto; display: block">
+            SUBMIT
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <h2 id="warning" style="text-align: center;  color: red; "></h2>
+    <table
+      style="margin: auto; margin-top: 20px"
+      border="1"
+      cellspacing="0"
+      cellpadding="15"
+    >
+      <tr>
+          <tr>
+            <td colspan="2">
+              <h1 align="center">Hasil Outputnya :</h1>
+            </td>
+          </tr>
+        <td>
+          <label for="namaOutput">Nama</label>
+        </td>
+        <td>
+          <input disabled type="text" id="namaOutput" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="pekerjaanOutput">Pekerjaan</label>
+        </td>
+        <td>
+          <input disabled type="text" id="pekerjaanOutput" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="hobyOutput">Hoby</label>
+        </td>
+        <td>
+          <input disabled type="text" id="hobyOutput" />
+        </td>
+      </tr>
+    </table>
+    <script>
+        let nama = document.getElementById('nama');
+        let pekerjaan = document.getElementById('pekerjaan');
+        let hoby = document.getElementById('hoby');
+        let namaOutput = document.getElementById('namaOutput');
+        let pekerjaanOutput = document.getElementById('pekerjaanOutput');
+        let hobyOutput = document.getElementById('hobyOutput');
+        
+        const warning = document.getElementById('warning');
+        const submit = document.getElementById('submit');
+
+        submit.addEventListener('click',function(){
+            if(nama.value === '' || pekerjaan.value === '' || hoby.value === ''){
+              warning.innerText = "Inputnya Harus Diisi Dulu BOS!!!";
+            
+            }else{
+                namaOutput.value = nama.value;
+                pekerjaanOutput.value = pekerjaan.value;
+                hobyOutput.value = hoby.value;
+                warning.innerText = ""
+            }
+        })
+    </script>
+  </body>
+</html>
