@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas4</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <center>
+      <h1>Input Pegawai</h1>
+      <form
+        style="
+          width: 300px;
+          padding: 10px 20px;
+          border-radius: 10px;
+          margin-bottom: 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          border: 2px solid blue;
+        "
+      >
+        <label for="nama">Nama Pegawai : <input type="text" id="nama" /></label>
+        <label for="jabatan"
+          >Jabatan Pegawai :
+          <select id="jabatan">
+            <option value="manager">Manager</option>
+            <option value="asistenmanager">AsistenManager</option>
+            <option value="staff">Staff</option>
+          </select>
+        </label>
+        <label for="status"
+          >Status Pegawai :
+          <select id="status">
+            <option value="menikah">kawin</option>
+            <option value="belomnikah">belomkawin</option>
+          </select>
+        </label>
+        <button type="submit" id="submit">Kirim Data</button>
+      </form>
+    </center>
+  </body>
+  <script>
+    const submit = document.getElementById("submit");
+    submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      const inputNama = document.getElementById("nama");
+      const inputJabatan = document.getElementById("jabatan");
+      const inputStatus = document.getElementById("status");
+
+      if (inputJabatan.value == "manager") {
+        gajiPokok = 15000000;
+      } else if (inputJabatan.value == "asistenmanager") {
+        gajiPokok = 10000000;
+      } else {
+        gajiPokok = 5000000;
+      }
+      let tunJab = (gajiPokok * 15) / 100;
+      let bpjs = (gajiPokok * 10) / 100;
+      let tunjanganMenikah =
+        inputStatus.value == "menikah" ? (gajiPokok * 20) / 100 : 0;
+
+      let totalGaji = gajiPokok + tunJab + bpjs + tunjanganMenikah;
+
+      Swal.fire({
+        title: "<strong>Hasil Output</strong>",
+        icon: "info",
+        html: `
+        <table border="1" cellpadding="15" cellspacing="0">
+        <thead>
+          <tr>
+            <td>No.</td>
+            <td>Nama Pegawai</td>
+            <td>Jabatan</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="pegawai">${inputNama.value}</td>
+            <td class="jabatan">${inputJabatan.value}</td>
+            <td class="status">${inputStatus.value}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Gaji</td>
+            <td colspan="3" class="gapok">Rp. ${totalGaji}</td>
+          </tr>
+        </tfoot>
+      </table>
+      `,
+      });
+    });
+  </script>
+</html>
