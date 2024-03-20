@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas5Js</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        border: 2px solid wheat;
+        border-radius: 10px;
+        background-color: rgb(81, 82, 82);
+      }
+      .satu,
+      .dua,
+      .tiga {
+        display: flex;
+        /* background-color: rgb(8, 242, 250); */
+        color: #fff;
+        font-size: 30px;
+        background-size: cover;
+        cursor: progress;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.js"
+      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="satu">
+        <span style="margin: auto">Burung</span>
+        <audio id="birdAudio" controls>
+          <source src="bird.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="dua">
+        <span style="margin: auto">Kambing</span>
+        <audio id="goatAudio" controls>
+          <source src="goat.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="tiga">
+        <span style="margin: auto">Ayam</span>
+        <audio id="chickenAudio" controls>
+          <source src="chicken.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".satu").mouseover(function () {
+          $(this).css(
+            "background-image",
+            "url('https://source.unsplash.com/300x400/?bird')"
+          );
+          document
+            .getElementById("birdAudio")
+            .play(); /* Memutar musik saat mouse hover */
+        });
+        $(".dua").mouseover(function () {
+          $(this).css(
+            "background-image",
+            "url('https://source.unsplash.com/300x400/?goats')"
+          );
+          document
+            .getElementById("goatAudio")
+            .play(); /* Memutar musik saat mouse hover */
+        });
+        $(".tiga").mouseover(function () {
+          $(this).css(
+            "background-image",
+            "url('https://source.unsplash.com/300x400/?chicken')"
+          );
+          document
+            .getElementById("chickenAudio")
+            .play(); /* Memutar musik saat mouse hover */
+        });
+        $(".satu, .dua, .tiga").mouseleave(function () {
+          $(this).css(
+            "background-image",
+            "none"
+          ); /* Menghapus gambar latar belakang saat mouse meninggalkan */
+          var audioId =
+            $(this).attr("class").split(" ")[0] +
+            "Audio"; /* Mendapatkan id audio sesuai kelas elemen */
+          document
+            .getElementById(audioId)
+            .pause(); /* Menghentikan musik saat mouse meninggalkan */
+        });
+      });
+    </script>
+  </body>
+</html>
