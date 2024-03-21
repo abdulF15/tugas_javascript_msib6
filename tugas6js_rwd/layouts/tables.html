@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataTables</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"
+    />
+  </head>
+  <body>
+    <div style="width: 800px; margin: auto;">
+        <table id="example" class="display" style="width: 100%;">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011-04-25</td>
+              <td>$320,800</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Tiasdager asdas</td>
+              <td>Systasdem Architect</td>
+              <td>Edinburgh</td>
+              <td>31</td>
+              <td>2011-04-25</td>
+              <td>$320,800</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>asda Nixon</td>
+              <td>Sydasdsastem Architect</td>
+              <td>Edasdinburgh</td>
+              <td>21</td>
+              <td>2011-04-25</td>
+              <td>$320,800</td>
+            </tr>
+            
+          </tfoot>
+        </table>
+    </div>
+    <script src="
+https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script>
+      let table = new DataTable("#example");
+    </script>
+  </body>
+</html>
